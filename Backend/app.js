@@ -2,7 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 
 //local module
 const db = require("./config/db");
@@ -31,7 +31,7 @@ db.query("SELECT 1")
   .then(() => console.log("database connected succesfully"))
   .catch((err) => console.log(err));
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on Port http://localhost:${port}`);
 });
